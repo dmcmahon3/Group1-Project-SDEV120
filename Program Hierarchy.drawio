@@ -1,41 +1,135 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.12">
   <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
-    <mxGraphModel dx="1223" dy="871" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2301" dy="1616" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="dNxyNK7c78bLwvsdeMH5-11" value="Orgchart" style="swimlane;html=1;startSize=20;horizontal=1;containerType=tree;glass=0;" parent="1" vertex="1">
-          <mxGeometry x="40" y="80" width="710" height="290" as="geometry" />
-        </mxCell>
-        <UserObject label="%name%&lt;br&gt;&lt;i style=&quot;color: gray&quot;&gt;%position%&lt;/i&gt;&lt;br&gt;&lt;a href=&quot;mailto:%email%&quot;&gt;Email&lt;/a&gt;" name="Tessa Miller" position="CFO" location="Office 1" email="me@example.com" placeholders="1" link="https://www.draw.io" id="dNxyNK7c78bLwvsdeMH5-12">
-          <mxCell style="label;image=https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-3-128.png;whiteSpace=wrap;html=1;rounded=0;glass=0;treeMoving=1;treeFolding=1;" parent="dNxyNK7c78bLwvsdeMH5-11" vertex="1">
-            <mxGeometry x="260" y="50" width="180" height="70" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <mxCell id="dNxyNK7c78bLwvsdeMH5-13" value="" style="endArrow=blockThin;endFill=1;fontSize=11;edgeStyle=elbowEdgeStyle;elbow=vertical;rounded=0;" parent="dNxyNK7c78bLwvsdeMH5-11" source="dNxyNK7c78bLwvsdeMH5-12" target="dNxyNK7c78bLwvsdeMH5-14" edge="1">
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-94" value="" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;startArrow=none;endArrow=none;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-12" target="sqxzWw4khzxPjjoPkIRb-93">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <UserObject label="%name%&lt;br&gt;&lt;i style=&quot;color: gray&quot;&gt;%position%&lt;/i&gt;&lt;br&gt;&lt;a href=&quot;mailto:%email%&quot;&gt;Email&lt;/a&gt;" name="Edward Morrison" position="Brand Manager" location="Office 2" email="me@example.com" placeholders="1" link="https://www.draw.io" id="dNxyNK7c78bLwvsdeMH5-14">
-          <mxCell style="label;image=https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-10-3-128.png;whiteSpace=wrap;html=1;rounded=0;glass=0;treeFolding=1;treeMoving=1;" parent="dNxyNK7c78bLwvsdeMH5-11" vertex="1">
-            <mxGeometry x="40" y="180" width="180" height="80" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <mxCell id="dNxyNK7c78bLwvsdeMH5-15" value="" style="endArrow=blockThin;endFill=1;fontSize=11;edgeStyle=elbowEdgeStyle;elbow=vertical;rounded=0;" parent="dNxyNK7c78bLwvsdeMH5-11" source="dNxyNK7c78bLwvsdeMH5-12" target="dNxyNK7c78bLwvsdeMH5-16" edge="1">
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-96" value="" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;startArrow=none;endArrow=none;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-12" target="sqxzWw4khzxPjjoPkIRb-95">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <UserObject label="%name%&lt;br&gt;&lt;i style=&quot;color: gray&quot;&gt;%position%&lt;/i&gt;&lt;br&gt;&lt;a href=&quot;mailto:%email%&quot;&gt;Email&lt;/a&gt;" name="Evan Valet" position="HR Director" location="Office 4" email="me@example.com" placeholders="1" link="https://www.draw.io" id="dNxyNK7c78bLwvsdeMH5-16">
-          <mxCell style="label;image=https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-9-2-128.png;whiteSpace=wrap;html=1;rounded=0;glass=0;treeFolding=1;treeMoving=1;" parent="dNxyNK7c78bLwvsdeMH5-11" vertex="1">
-            <mxGeometry x="260" y="180" width="180" height="80" as="geometry" />
-          </mxCell>
-        </UserObject>
-        <mxCell id="dNxyNK7c78bLwvsdeMH5-17" value="" style="endArrow=blockThin;endFill=1;fontSize=11;edgeStyle=elbowEdgeStyle;elbow=vertical;rounded=0;" parent="dNxyNK7c78bLwvsdeMH5-11" source="dNxyNK7c78bLwvsdeMH5-12" target="dNxyNK7c78bLwvsdeMH5-18" edge="1">
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-121" value="" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=horizontal;startArrow=none;endArrow=none;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-12" target="sqxzWw4khzxPjjoPkIRb-120">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <UserObject label="%name%&lt;br&gt;&lt;i style=&quot;color: gray&quot;&gt;%position%&lt;/i&gt;&lt;br&gt;&lt;a href=&quot;mailto:%email%&quot;&gt;Email&lt;/a&gt;" name="Alison Donovan" position="System Admin" location="Office 3" email="me@example.com" placeholders="1" link="https://www.draw.io" id="dNxyNK7c78bLwvsdeMH5-18">
-          <mxCell style="label;image=https://cdn3.iconfinder.com/data/icons/user-avatars-1/512/users-2-128.png;whiteSpace=wrap;html=1;rounded=0;glass=0;" parent="dNxyNK7c78bLwvsdeMH5-11" vertex="1">
-            <mxGeometry x="490" y="180" width="180" height="80" as="geometry" />
+        <UserObject label="payroll program" treeRoot="1" id="sqxzWw4khzxPjjoPkIRb-12">
+          <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+            <mxGeometry x="310" y="60" width="200" height="60" as="geometry" />
           </mxCell>
         </UserObject>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-13" value="housekeeping()" style="whiteSpace=wrap;html=1;align=center;verticalAlign=middle;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+          <mxGeometry x="60" y="220" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-14" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startArrow=none;endArrow=none;rounded=0;curved=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" target="sqxzWw4khzxPjjoPkIRb-13" parent="1" source="sqxzWw4khzxPjjoPkIRb-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="160" y="160" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-24" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;endArrow=none;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-13" target="sqxzWw4khzxPjjoPkIRb-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-52" value="Module with multiple prompts for user inputs that are echoed back to them for confirmation.&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;This module might need to write information to the employee database in addition to calling pay rate. (Project requirements are ambiguous on this part.)&lt;/div&gt;" style="shape=partialRectangle;whiteSpace=wrap;html=1;bottom=0;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="-180" y="520" width="180" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-90" target="sqxzWw4khzxPjjoPkIRb-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-90" value="Declarations, open database file, prompt user for next step." style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="-190" y="160" width="190" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-98" value="" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;startArrow=none;endArrow=none;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-93" target="sqxzWw4khzxPjjoPkIRb-97">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-104" value="" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;startArrow=none;endArrow=none;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-93" target="sqxzWw4khzxPjjoPkIRb-103">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-112" value="" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;startArrow=none;endArrow=none;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-93" target="sqxzWw4khzxPjjoPkIRb-111">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="detail_loop()" treeRoot="1" id="sqxzWw4khzxPjjoPkIRb-93">
+          <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+            <mxGeometry x="310" y="220" width="200" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="end_of_job()" treeRoot="1" id="sqxzWw4khzxPjjoPkIRb-95">
+          <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+            <mxGeometry x="550" y="220" width="200" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="input_employee_info()" treeRoot="1" id="sqxzWw4khzxPjjoPkIRb-97">
+          <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+            <mxGeometry y="410" width="200" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-106" value="" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;startArrow=none;endArrow=none;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-103" target="sqxzWw4khzxPjjoPkIRb-105">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-108" value="" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;startArrow=none;endArrow=none;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-103" target="sqxzWw4khzxPjjoPkIRb-107">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-110" value="" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;startArrow=none;endArrow=none;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-103" target="sqxzWw4khzxPjjoPkIRb-109">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="calculate_paystub_info()" treeRoot="1" id="sqxzWw4khzxPjjoPkIRb-103">
+          <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+            <mxGeometry x="310" y="410" width="200" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="calculate_grosspay()" treeRoot="1" id="sqxzWw4khzxPjjoPkIRb-105">
+          <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+            <mxGeometry x="100" y="585" width="200" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="calculate_pretax_amt()" treeRoot="1" id="sqxzWw4khzxPjjoPkIRb-107">
+          <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+            <mxGeometry x="310" y="585" width="200" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="calculate_net_pay()" treeRoot="1" id="sqxzWw4khzxPjjoPkIRb-109">
+          <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+            <mxGeometry x="520" y="585" width="200" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="print_and_clear_paystub_info()" treeRoot="1" id="sqxzWw4khzxPjjoPkIRb-111">
+          <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+            <mxGeometry x="620" y="410" width="200" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-114" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.005;entryY=0.65;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-52" target="sqxzWw4khzxPjjoPkIRb-97">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-116" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-115">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="410" y="665" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-115" value="The bulk of the payroll calculations are done in this branch. They&amp;nbsp;can be handled in one large module or broken into three smaller subroutines." style="shape=partialRectangle;whiteSpace=wrap;html=1;bottom=0;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="320" y="725" width="180" height="80" as="geometry" />
+        </mxCell>
+        <UserObject label="employee database" treeRoot="1" id="sqxzWw4khzxPjjoPkIRb-120">
+          <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
+            <mxGeometry x="590" y="60" width="200" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-123" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-122" target="sqxzWw4khzxPjjoPkIRb-120">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-122" value="Depending on how the project requirements are interpreted, this either only contains employee IDs and their pay rate, or it also stores their names and dependents, which can be rewritten through the program." style="shape=partialRectangle;whiteSpace=wrap;html=1;right=0;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="827" y="10" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-124" value="Prints out the employee&#39;s information, gross pay, pre-tax amount, and net pay. Afterwards, those values are reset, and the&amp;nbsp; program returns to the main loop." style="shape=partialRectangle;whiteSpace=wrap;html=1;bottom=0;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="827" y="530" width="180" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-125" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.85;entryY=0.95;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-124" target="sqxzWw4khzxPjjoPkIRb-111">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-128" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-126" target="sqxzWw4khzxPjjoPkIRb-95">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-126" value="When the user decides to exit the program, this module closes the database file and ends the program." style="shape=partialRectangle;whiteSpace=wrap;html=1;right=0;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="827" y="230" width="200" height="60" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
