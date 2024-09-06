@@ -29,8 +29,8 @@
         <mxCell id="sqxzWw4khzxPjjoPkIRb-24" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=none;endArrow=none;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-13" target="sqxzWw4khzxPjjoPkIRb-13">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="sqxzWw4khzxPjjoPkIRb-52" value="Module with multiple prompts for user inputs that are echoed back to them for confirmation.&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;This module might need to write information to the employee database in addition to calling pay rate. (Project requirements are ambiguous on this part.)&lt;/div&gt;" style="shape=partialRectangle;whiteSpace=wrap;html=1;bottom=0;fillColor=none;align=left;" vertex="1" parent="1">
-          <mxGeometry x="-180" y="520" width="180" height="150" as="geometry" />
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-52" value="Module with multiple prompts for user inputs that are echoed back to them for confirmation.&amp;nbsp;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;This module might need to write information to the employee database in addition to calling pay rate. (Project requirements are ambiguous on this part.)&lt;/div&gt;" style="shape=partialRectangle;whiteSpace=wrap;html=1;left=0;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="-180" y="460" width="180" height="150" as="geometry" />
         </mxCell>
         <mxCell id="sqxzWw4khzxPjjoPkIRb-92" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-90" target="sqxzWw4khzxPjjoPkIRb-13">
           <mxGeometry relative="1" as="geometry" />
@@ -54,12 +54,12 @@
         </UserObject>
         <UserObject label="end_of_job()" treeRoot="1" id="sqxzWw4khzxPjjoPkIRb-95">
           <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
-            <mxGeometry x="550" y="220" width="200" height="60" as="geometry" />
+            <mxGeometry x="580" y="220" width="200" height="60" as="geometry" />
           </mxCell>
         </UserObject>
         <UserObject label="input_employee_info()" treeRoot="1" id="sqxzWw4khzxPjjoPkIRb-97">
           <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
-            <mxGeometry y="410" width="200" height="60" as="geometry" />
+            <mxGeometry x="40" y="410" width="200" height="60" as="geometry" />
           </mxCell>
         </UserObject>
         <mxCell id="sqxzWw4khzxPjjoPkIRb-106" value="" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;elbow=vertical;startArrow=none;endArrow=none;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-103" target="sqxzWw4khzxPjjoPkIRb-105">
@@ -93,7 +93,7 @@
         </UserObject>
         <UserObject label="print_and_clear_paystub_info()" treeRoot="1" id="sqxzWw4khzxPjjoPkIRb-111">
           <mxCell style="whiteSpace=wrap;html=1;align=center;treeFolding=1;treeMoving=1;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;startArrow&quot;:&quot;none&quot;,&quot;endArrow&quot;:&quot;none&quot;};" vertex="1" parent="1">
-            <mxGeometry x="620" y="410" width="200" height="60" as="geometry" />
+            <mxGeometry x="590" y="410" width="200" height="60" as="geometry" />
           </mxCell>
         </UserObject>
         <mxCell id="sqxzWw4khzxPjjoPkIRb-114" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=-0.005;entryY=0.65;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-52" target="sqxzWw4khzxPjjoPkIRb-97">
@@ -118,8 +118,8 @@
         <mxCell id="sqxzWw4khzxPjjoPkIRb-122" value="Depending on how the project requirements are interpreted, this either only contains employee IDs and their pay rate, or it also stores their names and dependents, which can be rewritten through the program." style="shape=partialRectangle;whiteSpace=wrap;html=1;right=0;fillColor=none;align=left;" vertex="1" parent="1">
           <mxGeometry x="827" y="10" width="200" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="sqxzWw4khzxPjjoPkIRb-124" value="Prints out the employee&#39;s information, gross pay, pre-tax amount, and net pay. Afterwards, those values are reset, and the&amp;nbsp; program returns to the main loop." style="shape=partialRectangle;whiteSpace=wrap;html=1;bottom=0;fillColor=none;align=left;" vertex="1" parent="1">
-          <mxGeometry x="827" y="530" width="180" height="80" as="geometry" />
+        <mxCell id="sqxzWw4khzxPjjoPkIRb-124" value="Prints out the employee&#39;s information, gross pay, pre-tax amount, and net pay. Afterwards, those values are reset, and the&amp;nbsp; program returns to the main loop." style="shape=partialRectangle;whiteSpace=wrap;html=1;right=0;fillColor=none;align=left;" vertex="1" parent="1">
+          <mxGeometry x="827" y="480" width="180" height="80" as="geometry" />
         </mxCell>
         <mxCell id="sqxzWw4khzxPjjoPkIRb-125" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.85;entryY=0.95;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="sqxzWw4khzxPjjoPkIRb-124" target="sqxzWw4khzxPjjoPkIRb-111">
           <mxGeometry relative="1" as="geometry" />
