@@ -1,0 +1,40 @@
+// This module retrieves an employee record from a file and
+       accepts user input of the number of hours that employee
+	   worked during that pay period.
+
+start
+    Declarations
+		INPUTFILE employee_data
+		string search_entry
+        string employee_id
+		string employee_lastname
+		string employee_firstname
+		num employee_hoursworked
+		num employee_hourlyrate
+		num employee_dependents
+		string QUIT = "exit"
+	
+// Employees file is loaded into memory and a prompt is displayed.
+// User can enter an employee ID number to retrieve that record,
+// or they can enter "exit" to go back.
+	
+	open employee_data "employees.csv"
+	output "Please enter the employee ID to be processed. To go back, type 'exit'."
+	    
+	input search_entry
+	while search_entry <> QUIT then
+		seek record search_entry
+		if record <> exist then
+			output search_entry + " not found. Please try another or type 'exit'."
+			input search_entry
+		else
+			input employee_id, employee_lastname, employee_firstname,
+			  employee_hourlyrate, employee_dependents from employee_data
+			output "Last Name:   " + employee_lastname
+			output "First Name:  " + employee_firstname
+			output "Employee ID: " + employee_id
+			output "Please enter hours worked to process paycheck or type					
+			input employee_hoursworked			
+		endif
+	endwhile
+return
