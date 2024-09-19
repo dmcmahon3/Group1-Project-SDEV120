@@ -1,0 +1,37 @@
+[
+    {
+        "employee_id": "100001",
+        "employee_lastname": "Sao",
+        "employee_firstname": "Armide",
+        "employee_hourlyrate": 25.0,
+        "employee_dependents": 2
+    },
+    {
+        "employee_id": "100002",
+        "employee_lastname": "Gyda",
+        "employee_firstname": "Sunder",
+        "employee_hourlyrate": 20.0,
+        "employee_dependents": 0
+    },
+    {
+        "employee_id": "100003",
+        "employee_lastname": "Martin",
+        "employee_firstname": "Gr\u00f3a",
+        "employee_hourlyrate": 22.5,
+        "employee_dependents": 1
+    },
+    {
+        "employee_id": "100004",
+        "employee_lastname": "Zayd",
+        "employee_firstname": "Nessa",
+        "employee_hourlyrate": 30.0,
+        "employee_dependents": 3
+    },
+    {
+        "employee_id": "100005",
+        "employee_lastname": "Aldert",
+        "employee_firstname": "Emmylou",
+        "employee_hourlyrate": 26.67,
+        "employee_dependents": 0
+    }
+]
