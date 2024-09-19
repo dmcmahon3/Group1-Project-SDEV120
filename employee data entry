@@ -1,0 +1,58 @@
+#This program currently will open a file containing a roster of employees.
+#Currently only viewing and adding records is supported.
+  
+import json
+filename = "employee_records.json"
+
+#This function presents a list of options for users.
+def choices():
+    print("Employee Database")
+    print("(1) View Employee Records")
+    print("(2) Add New Employee")
+    print("(3) Edit Employee")
+    print("(4) Remove Employee")
+    print("(5) Exit")
+
+#This function show all employee records in a formatted list with a break between each.
+def view_roster():
+    with open (filename, "r") as f:
+      temp = json.load(f)
+      for entry in temp:
+        employee_id = entry["employee_id"]
+        employee_lastname = entry["employee_lastname"]
+        employee_firstname = entry["employee_firstname"]
+        employee_hourlyrate = entry["employee_hourlyrate"]
+        employee_dependents = entry["employee_dependents"]
+        print (f"Employee ID:       {employee_id}")
+        print (f"Last Name:         {employee_lastname}")
+        print (f"First Name:        {employee_firstname}")
+        print (f"Hourly Wage:       {employee_hourlyrate}")
+        print (f"No. of Dependents: {employee_dependents}")
+        print ("\n\n")
+
+#This function prompts the user to enter a new employee record.
+def add_record():
+  item_data = {}
+  with open (filename, "r") as f:
+    temp = json.load(f)
+    item_data["employee_id"] = input("New Employee's ID: ")
+    item_data["employee_lastname"] = input("New Employee's Last Name: ")
+    item_data["employee_firstname"] = input("New Employee's First Name: ")
+    item_data["employee_hourlyrate"] = input("New Employee's Hourly Rate: ")
+    item_data["employee_dependents"] = input("New Employee's No of Dependents: ")
+    temp.append(item_data)
+  with open (filename, "w") as f:
+    json.dump(temp, f, indent=4)
+      
+#A loop that reads user input and executes a function for each. 
+while True:
+  choices()
+  choice = input("\nEnter Number: ")
+  if choice == "1":
+    view_roster()
+  elif choice == ("2"):
+    add_record()  
+  elif choice == ("5"):
+    break
+  else: 
+    print ("Please make a selection from 1-4")
