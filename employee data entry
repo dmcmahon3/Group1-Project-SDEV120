@@ -19,24 +19,24 @@ def choices():
 def view_roster():
     print("\n\nEMPLOYEE RECORDS\n")
     with open (employee_roster, "r") as f:
-      temp = json.load(f)
-      i = 1
-      for entry in temp:
-        employee_id = entry["employee_id"]
-        employee_lastname = entry["employee_lastname"]
-        employee_firstname = entry["employee_firstname"]
-        employee_hourlyrate = entry["employee_hourlyrate"]
-        employee_dependents = entry["employee_dependents"]
-        employee_hoursworked = entry["employee_hoursworked"]
-        print (f"Index Number: {i}")
-        print (f"Employee ID:       {employee_id}")
-        print (f"Last Name:         {employee_lastname}")
-        print (f"First Name:        {employee_firstname}")
-        print (f"Hourly Wage:       {employee_hourlyrate}")
-        print (f"No. of Dependents: {employee_dependents}")
-        print (f"Hours this period: {employee_hoursworked}")
-        print ("\n")
-        i = i + 1
+        temp = json.load(f)
+        i = 1
+        for entry in temp:
+            employee_id = entry["employee_id"]
+            employee_lastname = entry["employee_lastname"]
+            employee_firstname = entry["employee_firstname"]
+            employee_hourlyrate = entry["employee_hourlyrate"]
+            employee_dependents = entry["employee_dependents"]
+            employee_hoursworked = entry["employee_hoursworked"]
+            print (f"Index Number: {i}")
+            print (f"Employee ID:       {employee_id}")
+            print (f"Last Name:         {employee_lastname}")
+            print (f"First Name:        {employee_firstname}")
+            print (f"Hourly Wage:       {employee_hourlyrate}")
+            print (f"No. of Dependents: {employee_dependents}")
+            print (f"Hours this period: {employee_hoursworked}")
+            print ("\n")
+            i = i + 1
 
 #This function prompts the user to enter a new employee record.
 def add_record():
@@ -66,41 +66,41 @@ def edit_record():
     i=1
     for entry in temp:
         if i == int(editing_selection):
-          employee_id = entry["employee_id"]
-          employee_lastname = entry["employee_lastname"]
-          employee_firstname = entry["employee_firstname"]
-          employee_hourlyrate = entry["employee_hourlyrate"]
-          employee_dependents = entry["employee_dependents"]
-          employee_hoursworked = entry["employee_hoursworked"]
-          print (f"Index Number: {i}")
-          print (f"Current Employee ID: {employee_id}")
-          employee_id = input("Enter Employee's Updated ID: ")
-          print (f"Current Last Name: {employee_lastname}")
-          employee_lastname = input("Enter Employee's Updated Last Name: ")
-          print (f"Current First Name: {employee_firstname}")
-          employee_firstname = input("Enter Employee's Updated First Name: ")
-          print (f"Current Hourly Wage: {employee_hourlyrate}")
-          employee_hourlyrate = float(input("Enter Employee's Updated Hourly Rate: "))
-          print (f"Current No. of Dependents: {employee_dependents}")
-          employee_dependents = int(input(
-              "Enter Employee's Updated No of Dependents: "
-          ))
-          print (f"Current Hours this period: {employee_hoursworked}")
-          employee_hoursworked = float(input(
-              "Enter Employee's Updated Hours Worked this period: "
-          ))
-          new_data.append({
-              "employee_id": employee_id,
-              "employee_lastname": employee_lastname,
-              "employee_firstname": employee_firstname,
-              "employee_hourlyrate": employee_hourlyrate,
-              "employee_dependents": employee_dependents,
-              "employee_hoursworked": employee_hoursworked
-          })
-          i=i+1
+            employee_id = entry["employee_id"]
+            employee_lastname = entry["employee_lastname"]
+            employee_firstname = entry["employee_firstname"]
+            employee_hourlyrate = entry["employee_hourlyrate"]
+            employee_dependents = entry["employee_dependents"]
+            employee_hoursworked = entry["employee_hoursworked"]
+            print (f"Index Number: {i}")
+            print (f"Current Employee ID: {employee_id}")
+            employee_id = input("Enter Employee's Updated ID: ")
+            print (f"Current Last Name: {employee_lastname}")
+            employee_lastname = input("Enter Employee's Updated Last Name: ")
+            print (f"Current First Name: {employee_firstname}")
+            employee_firstname = input("Enter Employee's Updated First Name: ")
+            print (f"Current Hourly Wage: {employee_hourlyrate}")
+            employee_hourlyrate = float(input("Enter Employee's Updated Hourly Rate: "))
+            print (f"Current No. of Dependents: {employee_dependents}")
+            employee_dependents = int(input(
+                "Enter Employee's Updated No of Dependents: "
+            ))
+            print (f"Current Hours this period: {employee_hoursworked}")
+            employee_hoursworked = float(input(
+                "Enter Employee's Updated Hours Worked this period: "
+            ))
+            new_data.append({
+                "employee_id": employee_id,
+                "employee_lastname": employee_lastname,
+                "employee_firstname": employee_firstname,
+                "employee_hourlyrate": employee_hourlyrate,
+                "employee_dependents": employee_dependents,
+                "employee_hoursworked": employee_hoursworked
+            })
+            i=i+1
         else:
-          new_data.append(entry)
-          i=i+1
+            new_data.append(entry)
+            i=i+1
     with open (employee_roster, "w") as f:
         json.dump(new_data, f, indent=4)
   
@@ -119,11 +119,11 @@ def delete_record():
     i=1
     for entry in temp:
         if i == int(deletion_selection):
-          pass
-          i=i+1
+            pass
+            i=i+1
         else:
-          new_data.append(entry)
-          i=i+1
+            new_data.append(entry)
+            i=i+1
     with open (employee_roster, "w") as f:
         json.dump(new_data, f, indent=4)
   
@@ -133,20 +133,14 @@ while True:
   choices()
   choice = input("\nEnter Number: ")
   if choice == "1":
-    view_roster()
+      view_roster()
   elif choice == ("2"):
-    add_record()  
+      add_record()  
   elif choice == ("3"):
-    edit_record()
+      edit_record()
   elif choice == ("4"):
-    delete_record()  
+      delete_record()  
   elif choice == ("5"):
-    break
+      break
   else: 
-    print ("Please make a selection from 1-5")
-
-
-
-
-
-  
+      print ("Please make a selection from 1-5")  
