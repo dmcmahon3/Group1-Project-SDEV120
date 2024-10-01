@@ -1,0 +1,60 @@
+import json
+
+json_data = open("employee_records.json")
+
+# print (json_data.read())
+
+result = json.load(json_data)
+
+variable_id = (input("enter the ID to search\n"))
+
+
+for item in result:
+#       print(item["employee_hoursworked"])
+    if variable_id == item["employee_id"]:
+        last_name = item["employee_lastname"]
+        employee_hourlyrate = item["employee_hourlyrate"]
+        employee_dependents = item["employee_dependents"]
+        hours_worked = item["employee_hoursworked"]
+        
+        
+  
+# print(f"ID: {variable_id} and {last_name}, hours worket: {hours_worked} at {employee_hourlyrate}")
+
+# calculate_gross_pay
+def calculate_gross_pay(hours_worked, employee_hourlyrate):
+    over_time_hours = 0
+    over_time_hours = employee_hourlyrate * 1.5
+    if hours_worked > 40:
+            calculate_gross_pay = (40 * employee_hourlyrate) + (over_time_hours * (hours_worked - 40))
+    else:
+            calculate_gross_pay = hours_worked * employee_hourlyrate
+    return calculate_gross_pay
+
+
+res = calculate_gross_pay(hours_worked, employee_hourlyrate)
+
+# print(f"and have a grooss pay of {res}")
+
+# pre-tax amount
+def calc_pre_taxe_amount(res, employee_dependents):
+    dependentes_dedution = employee_dependents * 25
+    pre_taxes = res - dependentes_dedution
+    
+#     print (f"gross pay is {res}")
+    
+    return pre_taxes
+
+pre_taxe_amount = calc_pre_taxe_amount(res, employee_dependents)
+# print(pre_taxe_amount)
+
+# pros tax amount
+def calc_net_pay(pre_taxe_amount):
+    state_tax = pre_taxe_amount * 0.056
+    federal_tax = pre_taxe_amount * 0.079
+    netpay_amount = pre_taxe_amount - state_tax - federal_tax
+    return netpay_amount
+
+
+netpay = calc_net_pay(pre_taxe_amount)
+print(f"ID: {variable_id}\nLast Name:{last_name}\nHours Worked: {hours_worked}\nHoursrate: {employee_hourlyrate}\n Gross payment: {res}\nNet pay: {netpay}")
