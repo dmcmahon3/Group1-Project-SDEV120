@@ -1,0 +1,125 @@
+#This file contains modules that are called by main.py to view and modify the JSON database.
+
+import json
+employee_file = "employee_records.json"
+
+#This function show all employee records in a formatted list with a break between each.
+#An index number is assigned to each record based on its position in the list for the
+#user to select when modifying the roster.
+def view_roster():
+    print("\n\nEMPLOYEE RECORDS\n")
+    with open (employee_file, "r") as f:
+        employees = json.load(f)
+        i = 1
+        for entry in employees:
+            employee_id = entry["employee_id"]
+            employee_lastname = entry["employee_lastname"]
+            employee_firstname = entry["employee_firstname"]
+            employee_hourlyrate = entry["employee_hourlyrate"]
+            employee_dependents = entry["employee_dependents"]
+            employee_hoursworked = entry["employee_hoursworked"]
+            print (f"Index Number: {i}")
+            print (f"Employee ID:       {employee_id}")
+            print (f"Last Name:         {employee_lastname}")
+            print (f"First Name:        {employee_firstname}")
+            print (f"Hourly Wage:       {employee_hourlyrate}")
+            print (f"No. of Dependents: {employee_dependents}")
+            print (f"Hours this period: {employee_hoursworked}")
+            print ("\n")
+            i = i + 1
+
+#This function prompts the user to enter a new employee record.
+def add_record():
+    new_data = {}
+    with open(employee_file, "r") as f:
+        employees = json.load(f)
+        while True:
+            new_data["employee_id"] = int(input("New Employee's ID (must be unique and at least 6 digits): "))
+            if new_data["employee_id"] > 99999 and new_data["employee_id"] not in employees:
+                break
+            else:
+                print("Employee ID too short or already in use. Please try again.")                            
+        new_data["employee_lastname"] = input("New Employee's Last Name: ")
+        new_data["employee_firstname"] = input("New Employee's First Name: ")
+        new_data["employee_hourlyrate"] = float(input("Employee's Hourly Rate: "))
+        new_data["employee_dependents"] = int(input("Employee's No of Dependents: "))
+        new_data["employee_hoursworked"] = float(input("Hours Worked this period: "))
+        employees.append(new_data)
+    with open (employee_file, "w") as f:
+        json.dump(employees, f, indent=4)
+
+#This function prompts the user to edit an employee record from the list
+#by selecting its index number.
+def edit_record():
+    view_roster()
+    new_data = []
+    with open(employee_file, "r") as f:
+        employees = json.load(f)
+        data_length = len(employees)-1
+        print ("Please select the index number of the record you wish to edit: ")
+        editing_selection = int(input(f"Select a number 1-{data_length + 1}: "))
+        i=1
+        for entry in employees:
+            if i == int(editing_selection):
+                employee_id = entry["employee_id"]
+                employee_lastname = entry["employee_lastname"]
+                employee_firstname = entry["employee_firstname"]
+                employee_hourlyrate = entry["employee_hourlyrate"]
+                employee_dependents = entry["employee_dependents"]
+                employee_hoursworked = entry["employee_hoursworked"]
+                print (f"Index Number: {i}")
+                print (f"Current Employee ID: {employee_id}")
+                while True:
+                    employee_id = int(input("Enter Employee's Updated ID (must be unique and at least 6 digits): "))
+                    if employee_id > 99999 and employee_id not in employees:
+                        break
+                    else:
+                        print("Employee ID too short or already in use. Please try again.")
+                    
+                print (f"Current Last Name: {employee_lastname}")
+                employee_lastname = input("Enter Employee's Updated Last Name: ")
+                print (f"Current First Name: {employee_firstname}")
+                employee_firstname = input("Enter Employee's Updated First Name: ")
+                print (f"Current Hourly Wage: {employee_hourlyrate}")
+                employee_hourlyrate = float(input("Enter Employee's Updated Hourly Rate: "))
+                print (f"Current No. of Dependents: {employee_dependents}")
+                employee_dependents = int(input("Enter Employee's Updated No of Dependents: "))
+                print (f"Current Hours this period: {employee_hoursworked}")
+                employee_hoursworked = float(input("Enter Employee's Updated Hours Worked this period: "))
+                new_data.append({
+                    "employee_id": employee_id,
+                    "employee_lastname": employee_lastname,
+                    "employee_firstname": employee_firstname,
+                    "employee_hourlyrate": employee_hourlyrate,
+                    "employee_dependents": employee_dependents,
+                    "employee_hoursworked": employee_hoursworked
+                })
+                i=i+1
+            else:
+                new_data.append(entry)
+                i=i+1
+        with open (employee_file, "w") as f:
+            json.dump(new_data, f, indent=4)
+  
+
+
+#This function prompts the user to delete an employee record from the list
+#by selecting its index number.
+def delete_record():
+    view_roster()
+    new_data = []
+    with open(employee_file, "r") as f:
+        employees = json.load(f)
+        data_length = len(employees)-1
+    print ("Please select the index number of the record you wish to delete: ")
+    deletion_selection = int(input(f"Select a number 1-{data_length + 1}: "))
+    i=1
+    for entry in employees:
+        if i == int(deletion_selection):
+            pass
+            i=i+1
+        else:
+            new_data.append(entry)
+            i=i+1
+    with open (employee_file, "w") as f:
+        json.dump(new_data, f, indent=4)
