@@ -4,34 +4,79 @@
         "employee_lastname": "Sao",
         "employee_firstname": "Armide",
         "employee_hourlyrate": 25.0,
-        "employee_dependents": 2
+        "employee_dependents": 2,
+        "employee_hoursworked": 40.0
     },
     {
         "employee_id": "100002",
         "employee_lastname": "Gyda",
         "employee_firstname": "Sunder",
         "employee_hourlyrate": 20.0,
-        "employee_dependents": 0
+        "employee_dependents": 0,
+        "employee_hoursworked": 20.0
     },
     {
         "employee_id": "100003",
         "employee_lastname": "Martin",
-        "employee_firstname": "Gr\u00f3a",
+        "employee_firstname": "Groa",
         "employee_hourlyrate": 22.5,
-        "employee_dependents": 1
+        "employee_dependents": 1,
+        "employee_hoursworked": 20.0
     },
     {
         "employee_id": "100004",
         "employee_lastname": "Zayd",
         "employee_firstname": "Nessa",
         "employee_hourlyrate": 30.0,
-        "employee_dependents": 3
+        "employee_dependents": 3,
+        "employee_hoursworked": 45.0
     },
     {
         "employee_id": "100005",
         "employee_lastname": "Aldert",
         "employee_firstname": "Emmylou",
         "employee_hourlyrate": 26.67,
-        "employee_dependents": 0
+        "employee_dependents": 0,
+        "employee_hoursworked": 45.0
+    },
+    {
+        "employee_id": "100006",
+        "employee_lastname": "Elisabet",
+        "employee_firstname": "Kristian",
+        "employee_hourlyrate": 50.0,
+        "employee_dependents": 0,
+        "employee_hoursworked": 50.5
+    },
+    {
+        "employee_id": "100007",
+        "employee_lastname": "Bricius",
+        "employee_firstname": "Ambrogio",
+        "employee_hourlyrate": 50.0,
+        "employee_dependents": 10,
+        "employee_hoursworked": 50.5
+    },
+    {
+        "employee_id": "100008",
+        "employee_lastname": "Shet",
+        "employee_firstname": "Sauli",
+        "employee_hourlyrate": 99.99,
+        "employee_dependents": 0,
+        "employee_hoursworked": 40.0
+    },
+    {
+        "employee_id": "100009",
+        "employee_lastname": "Rosa",
+        "employee_firstname": "Jad",
+        "employee_hourlyrate": 99.99,
+        "employee_dependents": 4,
+        "employee_hoursworked": 40.0
+    },
+    {
+        "employee_id": "100010",
+        "employee_lastname": "Luisina",
+        "employee_firstname": "Leonidas",
+        "employee_hourlyrate": 23.45,
+        "employee_dependents": 2,
+        "employee_hoursworked": 40.01
     }
 ]
