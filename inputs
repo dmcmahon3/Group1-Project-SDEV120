@@ -3,10 +3,10 @@
 import json
 employee_file = "employee_records.json"
 
-#This function show all employee records in a formatted list with a break between each.
-#An index number is assigned to each record based on its position in the list for the
-#user to select when modifying the roster.
 def view_roster():
+#This function lists all employee records with a break between each.
+#An index number is assigned to each record based on its list position.
+#The user will use this index number to select a record in other modules.
     print("\n\nEMPLOYEE RECORDS\n")
     with open (employee_file, "r") as f:
         employees = json.load(f)
@@ -28,29 +28,63 @@ def view_roster():
             print ("\n")
             i = i + 1
 
-#This function prompts the user to enter a new employee record.
+
 def add_record():
+# This function prompts the user to enter a new employee record.
+# If an entry is invalid, the user is prompted to re-enter it.
+# The new record is then appended to the end of the list.
+# The file is overwritten with the updated list. It's then saved and closed.
     new_data = {}
     with open(employee_file, "r") as f:
         employees = json.load(f)
         while True:
-            new_data["employee_id"] = int(input("New Employee's ID (must be unique and at least 6 digits): "))
-            if new_data["employee_id"] > 99999 and new_data["employee_id"] not in employees:
+            new_data["employee_id"] = input("New Employee's ID (must be unique and at least 6 digits): ")
+            if len(new_data["employee_id"]) > 5 and \
+                new_data["employee_id"].isdigit() == True and \
+                    new_data["employee_id"] not in employees:
                 break
             else:
-                print("Employee ID too short or already in use. Please try again.")                            
-        new_data["employee_lastname"] = input("New Employee's Last Name: ")
-        new_data["employee_firstname"] = input("New Employee's First Name: ")
-        new_data["employee_hourlyrate"] = float(input("Employee's Hourly Rate: "))
-        new_data["employee_dependents"] = int(input("Employee's No of Dependents: "))
-        new_data["employee_hoursworked"] = float(input("Hours Worked this period: "))
+                print("Employee ID too short or already in use. Please re-enter.")                            
+        while True:
+            new_data["employee_lastname"] = input("New Employee's Last Name: ")
+            if new_data["employee_lastname"].isalpha() == True:
+                break
+            else:
+                print("Last name may only contain letters.")
+        while True:
+            new_data["employee_firstname"] = input("New Employee's First Name: ")
+            if new_data["employee_firstname"].isalpha() == True:
+                break
+            else:
+                print("First name may only contain letters.")
+        while True:
+            new_data["employee_hourlyrate"] = float(input("Employee's Hourly Rate: "))
+            if new_data["employee_hourlyrate"] > 5 and new_data["employee_hourlyrate"] < 100:
+                break
+            else:
+                print("Only hourly rate entries above $5 and below $100 may be entered.")
+        while True:
+            new_data["employee_dependents"] = int(input("Employee's No of Dependents: "))
+            if new_data["employee_dependents"] < 21:
+                break
+            else:
+                print("No more than 20 total dependents may be entered.")
+        while True:
+            new_data["employee_hoursworked"] = float(input("Hours Worked this period: "))
+            if new_data["employee_hoursworked"] >= 1 and new_data["employee_hoursworked"] <= 100:
+                break
+            else:
+                print("Hours worked may only be entered from 1-100.")
         employees.append(new_data)
     with open (employee_file, "w") as f:
         json.dump(employees, f, indent=4)
 
-#This function prompts the user to edit an employee record from the list
-#by selecting its index number.
+
 def edit_record():
+# This function prompts the user to select a record to edit by its index.
+# Each unselected list item's data is overwritten with the original values.
+# Once the selected record is reached, its values are overwritten by the user. 
+# The list iteration resumes. When it completes, the file is saved and closed.
     view_roster()
     new_data = []
     with open(employee_file, "r") as f:
@@ -70,22 +104,48 @@ def edit_record():
                 print (f"Index Number: {i}")
                 print (f"Current Employee ID: {employee_id}")
                 while True:
-                    employee_id = int(input("Enter Employee's Updated ID (must be unique and at least 6 digits): "))
-                    if employee_id > 99999 and employee_id not in employees:
+                    employee_id = input("Enter Employee's Updated ID (must be unique and at least 6 digits): ")
+                    if len(employee_id) > 5 and \
+                          employee_id.isdigit() == True and \
+                            employee_id not in employees:
                         break
                     else:
-                        print("Employee ID too short or already in use. Please try again.")
-                    
+                        print("Employee ID too short or already in use. Please re-enter.")                    
                 print (f"Current Last Name: {employee_lastname}")
-                employee_lastname = input("Enter Employee's Updated Last Name: ")
+                while True:
+                    employee_lastname = input("Enter Employee's Updated Last Name: ")
+                    if employee_lastname.isalpha() == True:
+                        break
+                    else:
+                        print("Last name may only contain letters.")
                 print (f"Current First Name: {employee_firstname}")
-                employee_firstname = input("Enter Employee's Updated First Name: ")
+                while True:
+                    employee_firstname = input("Enter Employee's Updated First Name: ")
+                    if employee_firstname.isalpha() == True:
+                        break
+                    else:
+                        print("First name may only contain letters.")
                 print (f"Current Hourly Wage: {employee_hourlyrate}")
-                employee_hourlyrate = float(input("Enter Employee's Updated Hourly Rate: "))
+                while True:                                   
+                    employee_hourlyrate = float(input("Enter Employee's Updated Hourly Rate: "))
+                    if employee_hourlyrate > 5 and employee_hourlyrate < 100:
+                        break
+                    else:
+                        print("Only hourly rate entries above $5 and below $100 may be entered.")
                 print (f"Current No. of Dependents: {employee_dependents}")
-                employee_dependents = int(input("Enter Employee's Updated No of Dependents: "))
+                while True:
+                    employee_dependents = int(input("Enter Employee's Updated No of Dependents: "))
+                    if employee_dependents < 21:
+                        break
+                    else:
+                        print("No more than 20 total dependents may be entered.")
                 print (f"Current Hours this period: {employee_hoursworked}")
-                employee_hoursworked = float(input("Enter Employee's Updated Hours Worked this period: "))
+                while True:
+                    employee_hoursworked = float(input("Enter Employee's Updated Hours Worked this period: "))
+                    if employee_hoursworked >= 1 and employee_hoursworked <= 100:
+                        break
+                    else:
+                        print("Hours worked may only be entered from 1-100.")
                 new_data.append({
                     "employee_id": employee_id,
                     "employee_lastname": employee_lastname,
@@ -103,8 +163,10 @@ def edit_record():
   
 
 
-#This function prompts the user to delete an employee record from the list
-#by selecting its index number.
+# This function prompts the user to delete an employee record from the list
+# by selecting its index number. All records are overwritten with
+# their original values except for the selected record, which is passed over.
+# The file is saved and closed after the new list is written to it.
 def delete_record():
     view_roster()
     new_data = []
