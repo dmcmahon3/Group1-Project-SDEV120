@@ -37,11 +37,14 @@ def add_record():
     new_data = {}
     with open(employee_file, "r") as f:
         employees = json.load(f)
+        id_list = []
+        for item in employees:
+            id_list.append(item["employee_id"])
         while True:
             new_data["employee_id"] = input("New Employee's ID (must be unique and at least 6 digits): ")
             if len(new_data["employee_id"]) > 5 and \
                 new_data["employee_id"].isdigit() == True and \
-                    new_data["employee_id"] not in employees:
+                    new_data["employee_id"] not in id_list:
                 break
             else:
                 print("Employee ID too short or already in use. Please re-enter.")                            
@@ -90,6 +93,9 @@ def edit_record():
     with open(employee_file, "r") as f:
         employees = json.load(f)
         data_length = len(employees)-1
+        id_list = []
+        for item in employees:
+            id_list.append(item["employee_id"])
         print ("Please select the index number of the record you wish to edit: ")
         editing_selection = int(input(f"Select a number 1-{data_length + 1}: "))
         i=1
@@ -104,10 +110,13 @@ def edit_record():
                 print (f"Index Number: {i}")
                 print (f"Current Employee ID: {employee_id}")
                 while True:
-                    employee_id = input("Enter Employee's Updated ID (must be unique and at least 6 digits): ")
+                    employee_id = input(
+                        "Enter Employee's Updated ID (must be unique and at least 6 digits): "
+                        )
                     if len(employee_id) > 5 and \
                           employee_id.isdigit() == True and \
-                            employee_id not in employees:
+                            employee_id not in id_list or \
+                                employee_id == entry["employee_id"]:
                         break
                     else:
                         print("Employee ID too short or already in use. Please re-enter.")                    
