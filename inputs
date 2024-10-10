@@ -37,17 +37,20 @@ def add_record():
     new_data = {}
     with open(employee_file, "r") as f:
         employees = json.load(f)
+        #A list of employee ID's is generated for user entry to be checked against.
         id_list = []
         for item in employees:
             id_list.append(item["employee_id"])
+        #Employee ID number must be unique, numeric, and a specific length.
         while True:
-            new_data["employee_id"] = input("New Employee's ID (must be unique and at least 6 digits): ")
-            if len(new_data["employee_id"]) > 5 and \
-                new_data["employee_id"].isdigit() == True and \
-                    new_data["employee_id"] not in id_list:
+            new_data["employee_id"] = input("New Employee's ID (must be numeric, unique, and 6 digits): ")
+            if len(new_data["employee_id"]) == 6\
+                and new_data["employee_id"].isdigit() == True\
+                    and new_data["employee_id"] not in id_list:
                 break
             else:
-                print("Employee ID too short or already in use. Please re-enter.")                            
+                print("Employee ID too short, already in use, or contains non-numeric characters. Please re-enter.")                            
+        #Last and first name entry must be alphabetic.
         while True:
             new_data["employee_lastname"] = input("New Employee's Last Name: ")
             if new_data["employee_lastname"].isalpha() == True:
@@ -60,24 +63,38 @@ def add_record():
                 break
             else:
                 print("First name may only contain letters.")
+        #Hourly rate must be within a range.
+        #Exception handling prevents crashing if user input isn't a float.
         while True:
-            new_data["employee_hourlyrate"] = float(input("Employee's Hourly Rate: "))
-            if new_data["employee_hourlyrate"] > 5 and new_data["employee_hourlyrate"] < 100:
+            try:
+                new_data["employee_hourlyrate"] = float(input("Employee's Hourly Rate: "))
+                if new_data["employee_hourlyrate"] < 100 and new_data["employee_hourlyrate"] > 5:
+                    break
+                else:
+                    print("Hourly rate entries must be between 5 and 100.")
+            except:
+                print("Hourly rate must be a number.")
+        #Number of dependents. Input is converted from a string to an integer for calculations.
+        while True:
+            new_data["employee_dependents"] = input("Employee's No of Dependents: ")
+            if new_data["employee_dependents"].isnumeric() == True\
+                and int(new_data["employee_dependents"]) < 21:
                 break
             else:
-                print("Only hourly rate entries above $5 and below $100 may be entered.")
+                print("Depedents entry must be a whole number and may not exceed 20.")
+        new_data["employee_dependents"] = int(new_data["employee_dependents"])
+        #Hours worked must be within a range.
+        #Exception handling prevents crash if user input isn't a float.
         while True:
-            new_data["employee_dependents"] = int(input("Employee's No of Dependents: "))
-            if new_data["employee_dependents"] < 21:
-                break
-            else:
-                print("No more than 20 total dependents may be entered.")
-        while True:
-            new_data["employee_hoursworked"] = float(input("Hours Worked this period: "))
-            if new_data["employee_hoursworked"] >= 1 and new_data["employee_hoursworked"] <= 100:
-                break
-            else:
-                print("Hours worked may only be entered from 1-100.")
+            try:
+                new_data["employee_hoursworked"] = float(input("Hours Worked this period: "))
+                if new_data["employee_hoursworked"] >= 1 and new_data["employee_hoursworked"] <= 100:
+                    break
+                else:
+                    print("Hours worked may only be entered from 1-100.")
+            except:
+                print ("Hours worked entry must be a number.")
+    #The new record is added to the list, which is rewritten to the JSON file.
         employees.append(new_data)
     with open (employee_file, "w") as f:
         json.dump(employees, f, indent=4)
@@ -92,34 +109,49 @@ def edit_record():
     new_data = []
     with open(employee_file, "r") as f:
         employees = json.load(f)
-        data_length = len(employees)-1
+        data_length = len(employees)
+        # A list of employee ID's is generated for user entry to be checked against.
         id_list = []
         for item in employees:
             id_list.append(item["employee_id"])
-        print ("Please select the index number of the record you wish to edit: ")
-        editing_selection = int(input(f"Select a number 1-{data_length + 1}: "))
+        # The user is prompted to enter an index number of a record to edit.
+        print ("Please select the index number of the record you wish to edit, or enter zero (0) to cancel: ")
+        while True:
+            try:
+                edit_selection = int(input(f"Select an index number from 1-{data_length}: "))
+                if edit_selection <= data_length and edit_selection >= 0:
+                    break
+                else:
+                    print(f"Selection must be from 1-{data_length} or 0 to cancel.")
+            except: 
+                print ("Entry must be a number.")
+        # The imported employee list is skipped over record by record, 
+        # increasing a counter until the user's index selection is matched.
+        # The program then identifies each field for use during the editing process.
         i=1
         for entry in employees:
-            if i == int(editing_selection):
+            if i == int(edit_selection):
                 employee_id = entry["employee_id"]
                 employee_lastname = entry["employee_lastname"]
                 employee_firstname = entry["employee_firstname"]
                 employee_hourlyrate = entry["employee_hourlyrate"]
                 employee_dependents = entry["employee_dependents"]
                 employee_hoursworked = entry["employee_hoursworked"]
+                # The program displays each field's current value to the user before prompting for input.
                 print (f"Index Number: {i}")
+                # Employee ID must be unique, unless it is already in use.
                 print (f"Current Employee ID: {employee_id}")
                 while True:
                     employee_id = input(
-                        "Enter Employee's Updated ID (must be unique and at least 6 digits): "
-                        )
-                    if len(employee_id) > 5 and \
-                          employee_id.isdigit() == True and \
-                            employee_id not in id_list or \
-                                employee_id == entry["employee_id"]:
+                        "Enter Employee's Updated ID (must be numeric, unique and 6 digits): ")
+                    if len(employee_id) == 6\
+                          and employee_id.isdigit() == True\
+                            and employee_id not in id_list\
+                                or employee_id == entry["employee_id"]:
                         break
                     else:
-                        print("Employee ID too short or already in use. Please re-enter.")                    
+                        print("Employee ID too short, already in use, or contains non-numeric characters. Please re-enter.")                    
+                # Last and first name must be alphabetic.
                 print (f"Current Last Name: {employee_lastname}")
                 while True:
                     employee_lastname = input("Enter Employee's Updated Last Name: ")
@@ -134,27 +166,40 @@ def edit_record():
                         break
                     else:
                         print("First name may only contain letters.")
+                # Hourly rate must be within a range.
+                # Exception handling prevents crashing if user input isn't a float.
                 print (f"Current Hourly Wage: {employee_hourlyrate}")
                 while True:                                   
-                    employee_hourlyrate = float(input("Enter Employee's Updated Hourly Rate: "))
-                    if employee_hourlyrate > 5 and employee_hourlyrate < 100:
-                        break
-                    else:
-                        print("Only hourly rate entries above $5 and below $100 may be entered.")
+                    try:
+                        employee_hourlyrate = float(input("Enter Employee's Updated Hourly Rate: "))
+                        if employee_hourlyrate < 100 and employee_hourlyrate > 5:
+                            break
+                        else:
+                            print("Hourly rate entries must be between 5 and 100.")
+                    except:
+                        print("Hourly rate must be a number.")                                  
+                # Number of dependents. Input is converted from a string to an integer for calculations.
                 print (f"Current No. of Dependents: {employee_dependents}")
                 while True:
-                    employee_dependents = int(input("Enter Employee's Updated No of Dependents: "))
-                    if employee_dependents < 21:
+                    employee_dependents = input("Enter Employee's Updated No of Dependents: ")
+                    if employee_dependents.isnumeric() == True and int(employee_dependents) < 21:
                         break
                     else:
-                        print("No more than 20 total dependents may be entered.")
+                        print("Depedents entry must be a whole number and may not exceed 20.")
+                employee_dependents = int(employee_dependents)
                 print (f"Current Hours this period: {employee_hoursworked}")
+                # Hours worked must be within an acceptable range.
+                # Exception handling prevents crashing if user input isn't a float.
                 while True:
-                    employee_hoursworked = float(input("Enter Employee's Updated Hours Worked this period: "))
-                    if employee_hoursworked >= 1 and employee_hoursworked <= 100:
-                        break
-                    else:
-                        print("Hours worked may only be entered from 1-100.")
+                    try:
+                        employee_hoursworked = float((input("Enter Employee's Updated Hours Worked this period: ")))
+                        if employee_hoursworked >= 1 and employee_hoursworked <= 100:
+                            break
+                        else:
+                            print("Hours worked may only be entered from 1-100.")
+                    except:
+                        print ("Hours worked entry must be a number.")
+                #The updated information is added to the list in its current position.
                 new_data.append({
                     "employee_id": employee_id,
                     "employee_lastname": employee_lastname,
@@ -164,26 +209,34 @@ def edit_record():
                     "employee_hoursworked": employee_hoursworked
                 })
                 i=i+1
+            #Each record that is not updated is inserted back into its original list position
+            #  with its current values.
             else:
                 new_data.append(entry)
                 i=i+1
         with open (employee_file, "w") as f:
             json.dump(new_data, f, indent=4)
-  
 
-
+def delete_record():
 # This function prompts the user to delete an employee record from the list
 # by selecting its index number. All records are overwritten with
 # their original values except for the selected record, which is passed over.
 # The file is saved and closed after the new list is written to it.
-def delete_record():
     view_roster()
     new_data = []
     with open(employee_file, "r") as f:
         employees = json.load(f)
-        data_length = len(employees)-1
-    print ("Please select the index number of the record you wish to delete: ")
-    deletion_selection = int(input(f"Select a number 1-{data_length + 1}: "))
+        data_length = len(employees)
+    print ("Please select the index number of the record that you wish to permanently delete, or enter zero (0) to cancel: ")
+    while True:
+            try:
+                deletion_selection = int(input(f"Select an index number from 1-{data_length}: "))
+                if deletion_selection <= data_length and deletion_selection >= 0:
+                    break
+                else:
+                    print(f"Selection must be from 1-{data_length} or 0 to cancel.")
+            except: 
+                print ("Entry must be a number.")
     i=1
     for entry in employees:
         if i == int(deletion_selection):
