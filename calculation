@@ -5,8 +5,16 @@ json_data = open("employee_records.json")
 
 result = json.load(json_data)
 
+id_list = []
+for item in result:
+    id_list.append(item["employee_id"])
+
 variable_id = (
      input("Enter an employee ID number from above to calculate pay:\n"))
+while variable_id not in id_list:
+     print("Employee ID not found.")
+     variable_id = input("Enter an employee ID number from above to calculate pay:")
+     
 
 
 for item in result:
@@ -33,7 +41,7 @@ def calculate_gross_pay(hours_worked, employee_hourlyrate):
     return calculate_gross_pay
 
 
-res = calculate_gross_pay(hours_worked, employee_hourlyrate)
+res = round(calculate_gross_pay(hours_worked, employee_hourlyrate), 2)
 
 # print(f"and have a grooss pay of {res}")
 
@@ -54,31 +62,31 @@ pre_taxe_amount = calc_pre_taxe_amount(res, employee_dependents)
 def calc_net_pay(pre_taxe_amount):
     global state_tax
     global federal_tax
-    state_tax = pre_taxe_amount * 0.056
-    federal_tax = pre_taxe_amount * 0.079
+    state_tax = round((pre_taxe_amount * 0.056), 2)
+    federal_tax = round((pre_taxe_amount * 0.079), 2)
     netpay_amount = pre_taxe_amount - state_tax - federal_tax
     return netpay_amount
 
 
-netpay = calc_net_pay(pre_taxe_amount)
+netpay = round(calc_net_pay(pre_taxe_amount), 2)
 #print(f"ID: {variable_id}\nLast Name:{last_name}\nHours Worked: {hours_worked}\nHoursrate: {employee_hourlyrate}\n Gross payment: {res}\nNet pay: {netpay}")
 
 def print_employee_info():
 # Prints employee paystub info and rounds it to two decimal places.
     print(f"Employee Name: {first_name} {last_name}")
     if hours_worked > 40:
-        print(f"Hours Worked: {hours_worked:.2f} ({(hours_worked - 40):.2f} overtime)")
+        print(f"Hours Worked: {hours_worked} ({(hours_worked - 40):} overtime)")
     else:
-        print(f"Hours Worked: {hours_worked:.2f}")
-    print(f"Hourly Rate: ${employee_hourlyrate:.2f}")
-    print(f"Gross Pay: ${res:.2f}")
+        print(f"Hours Worked: {hours_worked}")
+    print(f"Hourly Rate: ${employee_hourlyrate:}")
+    print(f"Gross Pay: ${res}")
     if employee_dependents > 0:
         print(f"Pre-Tax Deductions: ${dependentes_dedution} ({employee_dependents} dependents at $25 each)")
     else:
          print(f"Pre-Tax Deductions: ${dependentes_dedution} (No dependents)")
-    print(f"Federal Tax Witheld: ${federal_tax:.2f}")
-    print(f"State Tax Withheld: ${state_tax:.2f}")
-    print(f"Net Pay: ${netpay:.2f}")
+    print(f"Federal Tax Witheld: ${federal_tax}")
+    print(f"State Tax Withheld: ${state_tax}")
+    print(f"Net Pay: ${netpay}")
     print("\n---\n")
 
 print_employee_info()
