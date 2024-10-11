@@ -9,26 +9,19 @@ id_list = []
 for item in result:
     id_list.append(item["employee_id"])
 
-variable_id = (
+selected_id = (
      input("Enter an employee ID number from above to calculate pay:\n"))
-while variable_id not in id_list:
-     print("Employee ID not found.")
-     variable_id = input("Enter an employee ID number from above to calculate pay:")
-     
-
-
+while selected_id not in id_list:
+     print("Selected ID not found.")
+     selected_id = input("Enter an employee ID number from above to calculate pay:")
+   
 for item in result:
-#       print(item["employee_hoursworked"])
-    if variable_id == item["employee_id"]:
+    if selected_id == item["employee_id"]:
         last_name = item["employee_lastname"]
         first_name = item["employee_firstname"]
         employee_hourlyrate = item["employee_hourlyrate"]
         employee_dependents = item["employee_dependents"]
         hours_worked = item["employee_hoursworked"]
-
-
-
-# print(f"ID: {variable_id} and {last_name}, hours worket: {hours_worked} at {employee_hourlyrate}")
 
 # calculate_gross_pay
 def calculate_gross_pay(hours_worked, employee_hourlyrate):
@@ -41,49 +34,44 @@ def calculate_gross_pay(hours_worked, employee_hourlyrate):
     return calculate_gross_pay
 
 
-res = round(calculate_gross_pay(hours_worked, employee_hourlyrate), 2)
+gross_pay = round(calculate_gross_pay(hours_worked, employee_hourlyrate), 2)
 
-# print(f"and have a grooss pay of {res}")
 
 # pre-tax amount
-def calc_pre_taxe_amount(res, employee_dependents):
-    global dependentes_dedution
-    dependentes_dedution = employee_dependents * 25
-    pre_taxes = res - dependentes_dedution
+def calc_pre_tax_amount(gross_pay, employee_dependents):
+    global dependents_deduction
+    dependents_deduction = employee_dependents * 25
+    pre_taxes = gross_pay - dependents_deduction
 
-#     print (f"gross pay is {res}")
 
     return pre_taxes
 
-pre_taxe_amount = calc_pre_taxe_amount(res, employee_dependents)
-# print(pre_taxe_amount)
+pre_tax_amount = calc_pre_tax_amount(gross_pay, employee_dependents)
 
-# pros tax amount
-def calc_net_pay(pre_taxe_amount):
+# post tax amount
+def calc_net_pay(pre_tax_amount):
     global state_tax
     global federal_tax
-    state_tax = round((pre_taxe_amount * 0.056), 2)
-    federal_tax = round((pre_taxe_amount * 0.079), 2)
-    netpay_amount = pre_taxe_amount - state_tax - federal_tax
+    state_tax = round((pre_tax_amount * 0.056), 2)
+    federal_tax = round((pre_tax_amount * 0.079), 2)
+    netpay_amount = pre_tax_amount - state_tax - federal_tax
     return netpay_amount
 
-
-netpay = round(calc_net_pay(pre_taxe_amount), 2)
-#print(f"ID: {variable_id}\nLast Name:{last_name}\nHours Worked: {hours_worked}\nHoursrate: {employee_hourlyrate}\n Gross payment: {res}\nNet pay: {netpay}")
+netpay = round(calc_net_pay(pre_tax_amount), 2)
 
 def print_employee_info():
 # Prints employee paystub info and rounds it to two decimal places.
     print(f"Employee Name: {first_name} {last_name}")
     if hours_worked > 40:
-        print(f"Hours Worked: {hours_worked} ({(hours_worked - 40):} overtime)")
+        print(f"Hours Worked: {hours_worked} ({round((hours_worked - 40), 2):} overtime)")
     else:
         print(f"Hours Worked: {hours_worked}")
     print(f"Hourly Rate: ${employee_hourlyrate:}")
-    print(f"Gross Pay: ${res}")
+    print(f"Gross Pay: ${gross_pay}")
     if employee_dependents > 0:
-        print(f"Pre-Tax Deductions: ${dependentes_dedution} ({employee_dependents} dependents at $25 each)")
+        print(f"Pre-Tax Deductions: ${dependents_deduction} ({employee_dependents} dependents at $25 each)")
     else:
-         print(f"Pre-Tax Deductions: ${dependentes_dedution} (No dependents)")
+         print(f"Pre-Tax Deductions: ${dependents_deduction} (No dependents)")
     print(f"Federal Tax Witheld: ${federal_tax}")
     print(f"State Tax Withheld: ${state_tax}")
     print(f"Net Pay: ${netpay}")
