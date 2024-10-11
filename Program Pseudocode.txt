@@ -1,0 +1,378 @@
+// This is the outline for a weekly payroll program. 
+// It consists of three files:
+// main.py - mainline logic and user menu
+// calculation.py - a payroll calculation and output module called by main.py
+// inputs.py - a module containing functions used to view and edit
+//             an employee database file.
+// employee_records.json - A text file containing employee records stored
+                           in JavaScript Object Notation.
+___________________________________________________________
+main.py
+// A menu for users to view and edit an employee database file or
+// initiate a payroll calculation on a specific employee.
+start
+    Declarations
+        int menu_choice
+        inputfile employee_file = employee_records.json
+    
+    print "WEEKLY PAYROLL CALCULATOR"
+    print "by Group 1"
+    display_menu()
+    input menu_choice
+        while menu_choice <> 6
+            if menu_choice = 1
+                view_roster()
+            elif menu_choice = 2
+                add_record()
+            elif menu_choice = 3
+                edit_record()
+            elif menu_choice = 4
+                delete_record()
+            elif menu_choice = 5
+                view_roster()
+                open calculations.py
+                run calculations.py
+                close calculations.py
+            else
+                print "Selection must be from 1-6."
+                display_menu()
+                input menu_choice
+            endif
+        endwhile
+stop
+
+display_menu()
+    print "OPTIONS:"
+    print "(1) View Employee Roster"
+    print "(2) Add Employee Record"
+    print "(3) Edit Employee Record"
+    print "(4) Delete Employee Record"
+    print "(5) Calculate Pay"
+    print "(6) Exit"
+    print " Select an option from 1-6: "
+return
+
+___________________________________________________________
+inputs.py
+view_roster()
+// Module that displays all records stored in the database file
+// in a formatted list alongside an index number for selecting
+// in other modules.
+    Declarations
+        index_id = 1
+    open employee_file
+        for entry in employee_file
+            input employee_id, employee_lastname, employee_firstname,
+                employee_hourlyrate, employee_dependents, employee_hoursworked
+            print "Index Number:       ", index_id
+            print "Employee ID:        ", employee_id
+            print "Last Name:          ", employee_lastname
+            print "First Name:         ", employee_firstname
+            print "Hourly Wage:        ", employee_hourlyrate
+            print "No. of Depdendents: ", employee_dependents
+            print "Hours this period:  ", employee_hoursworked
+            index_id = index_id + 1
+        endfor
+    close employee_file
+return
+
+add_record()
+// Module that prompts user to input the fields of a new record,
+// which is saved to the database file when complete.
+    Declarations
+        str existing_id
+        str current_id_list[]
+        str new_record[]
+        str new_id
+        str new_lastname
+        str new_firstname
+        float new_hourlyrate
+        int new_dependents
+        float new_hoursworked    
+    open employee_file
+
+    // A list of employee ID's is generated
+    // for user entry to be checked against.
+    for entry in employee_file
+        input existing_id
+        append existing_id to current_id_list[]
+    endfor
+
+    // A series of validation loops for user entry of new employee data.
+    // These ensure that IDs are unique, pay info isn't outside extremes,
+    // and data is properly formatted.
+    input new_id
+        while new_id <> numeric AND new_id = entry in current_id_list[] 
+            print "Employee ID already in use or contains 
+                    non-numeric characters. Please re-enter."
+            input new_id
+        endwhile    
+    input new_lastname
+        while new_lastname <> alphabetic
+            print "Last name may only contain letters."
+            input new_lastname
+        endwhile
+    input new_firstname
+        while new_firstname <> alphabetic
+            print "First name may only contain letters."
+            input new_firstname
+        endwhile
+    input new_hourlyrate
+        while new_hourlyrate > 100 and new_hourlyrate < 5
+            print "Hourly rate entries must be between 5 and 100."
+            input new_hourlyrate
+        endwhile
+    input new_dependents
+        while new_dependents > 20
+            print "Dependents entry may not exceed 20 by default."
+            input new_dependents
+        endwhile
+    input new_hoursworked
+        while new_hoursworked < 1 AND new_hoursworked > 168
+            print "Hours worked may only be entered from 1-168."
+            input new_hoursworked
+        endwhile    
+    append new_lastname, new_firstname, new_hourlyrate
+            new_dependents, new_hoursworked to new_record[]    
+    append new_record[] to employee_file
+    close employee_file
+return
+
+edit_record()
+// Module that allows the user to update an existing record in the file.
+// Their completed input will overwrite the current record when finished.
+    Declarations
+        str existing_id
+        str current_current_id_list[]
+        str edited_record[]
+        str edited_id
+        str edited_lastname
+        str edited_firstname
+        float edited_hourlyrate
+        int edited_dependents
+        float edited_hoursworked
+        int roster_length = 1
+        int index_id = 1
+        int edit_selection
+    view_roster()
+    open employee_file
+    
+    // Determine how many records are in the file, and generate
+    // a list of current ID's to check against user input.
+    for entry in employee_file
+        input existing_id
+        append existing_id to current_id_list[]
+        roster_length = roster_length + 1
+    endfor
+    
+    // User selects a record to edit from the index printed by view_roster()
+    // Only zero or integers in the list index are allowed.
+    print "Please select the index number of the record you wish to edit,
+            or enter zero (0) to go back: "
+    input edit_selection
+        while edit_selection <> 0 OR edit_selection > roster_length
+            print "Please select a number from 1 - ", roster_length
+            input edit_selection
+        endwhile
+    
+        // The user's selection number is checked against the current
+        // record counter (index_id), which is then incremented by one.
+        // If the selection matches the counter, the user is prompted
+        // for new data to overwrite the record's current fields.
+        // If the selection was zero, no records are matched.
+        if index_id = edit_selection
+            print "Selected Index Number: ", index_id
+            
+            // If it is different from the original, the Updated ID entry
+            // is validated against current list to ensure it is unique.
+            print "Employee's Current ID: ", employee_id
+            print "Enter Employee's Updated ID: "            
+            input edited_id
+                while edited_id <> numeric 
+                      AND (edited_id = entry in current_id_list[]
+                           OR edited_id <> employee_id)
+                    print "Entered ID is already in use, or it contains 
+                           non-numeric characters. Please re-enter."
+                    input edited_id
+                endwhile
+            print "Employee's Last Name: ", employee_lastname
+            print "Enter Employee's updated last name: "
+            input edited_lastname
+                while edited_lastname <> alphabetic
+                    print "Last name may only contain letters."
+                    input edited_lastname
+                endwhile
+            print "Employee's First Name: ", employee_firstname
+            print "Enter Employee's updated last name: "           
+            input edited_firstname
+                while edited_firstname <> alphabetic
+                    print "First name may only contain letters."
+                    input edited_firstname
+                endwhile
+            print "Employee's current hourly wage: " employee_hourlyrate
+            print "Enter updated hourly wage: "
+            input edited_hourlyrate
+                while edited_hourlyrate > 100 and edited_hourlyrate < 5
+                    print "Hourly rate entries must be between 5 and 100."
+                    input edited_hourlyrate
+                endwhile
+            print "Employee's reported no. of dependents: ", employee_dependents
+            print "Enter updated no. of dependents: "
+            input edited_dependents
+                while edited_dependents > 20
+                    print "Dependents entry may not exceed 20 by default."
+                    input edited_dependents
+                endwhile
+            print "Employee's recorded hours this period: ", employee_hoursworked
+            print "Enter updated hours for this period: "
+            input edited_hoursworked
+                while edited_hoursworked < 1 and edited_hoursworked > 168
+                    print "Hours worked may only be entered from 1-168."
+                    input edited_hoursworked
+                endwhile
+            append edited_id, edited_lastname, edited_firstname,
+                edited_hourlyrate, edited_dependents, edited_hoursworked
+                to edited_record[]
+            overwrite entry in employee_file with edited_record[]
+            index_id = index_id + 1
+        else
+            index_id = index_id + 1
+    endfor
+    close employee_file
+return
+
+delete_record()
+// Module that allows a user to erase a record from the employee file.
+    Declarations
+        int roster_length = 1
+        int index_id = 1
+        int deletion_selection
+    view_roster()
+    open employee_file
+
+    // Determine how many records are in the file.
+    for entry in employee_file
+        roster_length = roster_length + 1
+    endfor    
+
+    // User selects a record to erase from the index printed by view_roster().
+    print "Please select the index number of the record that you wish to erase,
+           or enter zero (0) to cancel: "
+    input deletion_selection
+        while deletion_selection <> 0 OR deletion_selection > roster_length
+            print "Please select a number from 1 - ", roster_length
+            input deletion_selection
+        endwhile
+
+    // The user's selection is checked against the current index_id value,
+    // which is incremented by one for each entry in the roster. If the 
+    // selection is matched, the current entry will be erased. If a zero
+    // was entered, no entries are selected. Once the list is procssed,
+    // the file is closed and the user returns to the main menu. 
+        if index_id = deletion_selection
+            erase entry
+        else
+            index_id = index_id + 1
+        endif
+    endfor
+    close employee_file
+return
+
+___________________________________________________________
+calculation.py
+// An employee record is selected for payroll calculations.
+// A complete set of paystub information is output at the end.
+start 
+    Declarations
+        str id_list[]
+        str employee_id
+        str selected_id
+        str employee_last_name
+        str employee_first_name
+        float employee_hourlyrate
+        int employee_dependents
+        float employee_hoursworked
+        float gross_pay
+        int dependents_deduction
+        float pre_tax_amount
+        float state_tax
+        float federal_tax
+        float netpay
+    
+    // Generate a list of employee IDs to check user selection against.
+    open employee_file
+    for item in employee_file
+        input employee_id
+        append employee_id to id_list[]
+    endfor
+
+    // User enters an ID from the list previously printed by view_roster().
+    // This entry must match an existing ID.
+    print "Enter an employee ID number from above to calculate pay: "
+    input selected_id
+        while selected_id not in id_list
+            print "Selected ID not found."
+            input selected_id
+        endwhile
+    
+    // The selected ID is checked against each record in the file.
+    // If it's matched, that employee's fields are stored.
+    for item in employee_file
+        if employee_id = selected_id
+            input last_name, first_name, employee_hourlyrate,
+                  employee_dependents, hours_worked
+        endif
+    endfor
+
+    // Several functions calculate gross pay, pre-tax deductions,
+    // taxes, and net pay in sequence. A final paystub is output.
+    calculate_gross_pay()
+    calc_pre_tax_amount()
+    calc_net_pay()
+    print_employee_info()
+
+stop
+
+calculate_gross_pay()
+    Declarations
+        float over_time_rate
+    over_time_rate = employee_hourlyrate * 1.5
+    if hours_worked > 40
+        gross_pay = (40 * employee_hourlyrate)
+                    + (over_time_rate * (hours_worked - 40))
+    else
+        gross_pay = hours_worked * employee_hourlyrate
+    endif
+return
+
+calc_pre_tax_amount()
+    dependents_deduction = employee_dependents * 25
+    pre_tax_amount = gross_pay - dependents_deduction
+return
+
+calc_net_pay()
+    state_tax = pre_tax_amount * 0.056
+    federal_tax = pre_tax_amount * 0.079
+    netpay = pre_tax_amount - state_tax - federal_tax
+return
+
+print_employee_info()
+    print "Employee Name: ", first_name, last_name
+    if hours_worked > 40:
+        print "Hours Worked: ", hours_worked, " regular + ",
+               (hours_worked - 40), " overtime"
+    else
+        print "Hours worked: ", hours_worked
+    print "Hourly Rate: $", employee_hourlyrate
+    print "Gross Pay: $", gross_pay
+    if employee_dependents > 0
+        print "Pre-Tax Deductions: $", dependents_deduction, 
+               "(", employee_dependents, "dependents at $25 each)"
+    else
+        print "Pre-Tax Deductions: $", dependents_deduction,
+              "(No dependents)"
+    endif
+    print "Federal Tax Withheld: $", federal_tax
+    print "State Tax Withheld: $", state_tax
+    print "Net Pay: $", netpay
+return
