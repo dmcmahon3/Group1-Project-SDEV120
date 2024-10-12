@@ -143,7 +143,7 @@ edit_record()
 // Their completed input will overwrite the current record when finished.
     Declarations
         str existing_id
-        str current_current_id_list[]
+        str current_id_list[]
         str edited_record[]
         str edited_id
         str edited_lastname
@@ -180,6 +180,8 @@ edit_record()
         // If the selection matches the counter, the user is prompted
         // for new data to overwrite the record's current fields.
         // If the selection was zero, no records are matched.
+        
+    for entry in employee_file
         if index_id = edit_selection
             print "Selected Index Number: ", index_id
             
@@ -269,6 +271,7 @@ delete_record()
     // selection is matched, the current entry will be erased. If a zero
     // was entered, no entries are selected. Once the list is procssed,
     // the file is closed and the user returns to the main menu. 
+    for entry in employee file
         if index_id = deletion_selection
             erase entry
         else
